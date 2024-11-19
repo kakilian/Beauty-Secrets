@@ -26,7 +26,8 @@ SECRET_KEY = "django-insecure-nisgj6ww&(fa=z26+3va%gxnw+(h-&zydnjv^$sy=_=rdk)qq)
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "8000-debug-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net"
+    "8000-debug-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
+    "8000-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
 ]
 
 
