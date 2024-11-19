@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-nisgj6ww&(fa=z26+3va%gxnw+(h-&zydnjv^$sy=_=rdk)qq)"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "8000-debug-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "hello_world",
     "about",
+    ".herokuapp.com",
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
