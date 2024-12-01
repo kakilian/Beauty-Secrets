@@ -15,6 +15,9 @@ import os
 import dj_database_url
 from dotenv import load_dotenv
 
+if os.path.isfile("env.py"):
+    import env
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
