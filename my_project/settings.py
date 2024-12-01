@@ -35,6 +35,8 @@ ALLOWED_HOSTS = [
     "8000-debug-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
     "8000-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
     "beautysecrets.herokuapp.com",
+    ".codeinstitute-ide.net",
+    "heroku.com",
 ]
 
 # Application definition
