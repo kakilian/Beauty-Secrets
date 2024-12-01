@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+# import os
+# import dj_database_url
+
+# if os.path.isfile("env.py"):
+#    import env
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,6 +32,8 @@ SECRET_KEY = "django-insecure-nisgj6ww&(fa=z26+3va%gxnw+(h-&zydnjv^$sy=_=rdk)qq)
 DEBUG = False
 
 ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
     "8000-debug-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
     "8000-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
     "8000-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
@@ -44,17 +52,16 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "hello_world",
     "about",
-    ".herokuapp.com",
 ]
 
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",  # Required for admin
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",  # Required for admin
+    "django.contrib.messages.middleware.MessageMiddleware",  # Required for admin
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -89,6 +96,7 @@ DATABASES = {
     }
 }
 
+# DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
