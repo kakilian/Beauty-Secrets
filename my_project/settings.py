@@ -37,6 +37,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "8000-debug-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
     "8000-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
+    "beautysecerts-4e87f24528da.herokuapp.com",
     "beautysecrets.herokuapp.com",
     ".codeinstitute-ide.net",
     "heroku.com",
