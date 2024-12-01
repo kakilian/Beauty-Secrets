@@ -11,23 +11,20 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
 import os
+import dj_database_url
+from dotenv import load_dotenv
 
-# import dj_database_url
-
-# if os.path.isfile("env.py"):
-#    import env
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-nisgj6ww&(fa=z26+3va%gxnw+(h-&zydnjv^$sy=_=rdk)qq)"
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "default-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -39,7 +36,6 @@ ALLOWED_HOSTS = [
     "8000-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
     "beautysecrets.herokuapp.com",
 ]
-
 
 # Application definition
 
@@ -54,10 +50,9 @@ INSTALLED_APPS = [
     "about",
 ]
 
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # Common usage for Heroku depolyments
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Common usage for Heroku deployments
     "django.contrib.sessions.middleware.SessionMiddleware",  # Required for admin
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -86,22 +81,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "my_project.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+# DATABASES = {"default": dj_database_url.parse(os.getenv("DATABASE_URL"))}
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
-# DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -117,22 +107,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
-
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(
     BASE_DIR, "staticfiles"
@@ -140,5 +123,4 @@ STATIC_ROOT = os.path.join(
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
