@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
-# import os
+import os
+
 # import dj_database_url
 
 # if os.path.isfile("env.py"):
@@ -36,8 +37,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "8000-debug-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
     "8000-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
-    "8000-kakilian-beautysecrets-4a9rfp5ybuh.ws.codeinstitute-ide.net",
-    ".herokuapp.com",
+    "beautysecrets.herokuapp.com",
 ]
 
 
@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Common usage for Heroku depolyments
     "django.contrib.sessions.middleware.SessionMiddleware",  # Required for admin
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -133,6 +134,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(
+    BASE_DIR, "staticfiles"
+)  # check if adjustments are needed. Added for whitenoise
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
